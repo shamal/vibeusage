@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=400" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>VibeUsage</title>
+  </head>
+  <body>
+    <header>
+      <h1>VibeUsage</h1>
+      <button id="refresh" title="Refresh">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path
+            d="M13.5 2.5v4h-4M2.5 13.5v-4h4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M3.5 6A5.5 5.5 0 0 1 13.2 4.8M12.5 10A5.5 5.5 0 0 1 2.8 11.2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <div id="cards">
+      <div class="card" id="claude-card">
+        <div class="card-header">
+          <span class="provider-dot claude-dot"></span>
+          <span class="provider-name">Claude</span>
+          <span class="status-badge" id="claude-status"></span>
+        </div>
+        <div class="card-body" id="claude-body">
+          <div class="window">
+            <div class="window-label">
+              <span>5h window</span>
+              <span class="pct" id="claude-5h-pct">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" id="claude-5h-bar"></div>
+            </div>
+            <div class="reset" id="claude-5h-reset"></div>
+          </div>
+          <div class="window">
+            <div class="window-label">
+              <span>7d window</span>
+              <span class="pct" id="claude-7d-pct">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" id="claude-7d-bar"></div>
+            </div>
+            <div class="reset" id="claude-7d-reset"></div>
+          </div>
+        </div>
+        <div class="card-error" id="claude-error" hidden></div>
+      </div>
+
+      <div class="card" id="chatgpt-card">
+        <div class="card-header">
+          <span class="provider-dot chatgpt-dot"></span>
+          <span class="provider-name">ChatGPT</span>
+          <span class="status-badge" id="chatgpt-status"></span>
+        </div>
+        <div class="card-body" id="chatgpt-body">
+          <div class="window">
+            <div class="window-label">
+              <span>Primary</span>
+              <span class="pct" id="chatgpt-pri-pct">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" id="chatgpt-pri-bar"></div>
+            </div>
+            <div class="reset" id="chatgpt-pri-reset"></div>
+          </div>
+          <div class="window">
+            <div class="window-label">
+              <span>Secondary</span>
+              <span class="pct" id="chatgpt-sec-pct">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" id="chatgpt-sec-bar"></div>
+            </div>
+            <div class="reset" id="chatgpt-sec-reset"></div>
+          </div>
+        </div>
+        <div class="card-error" id="chatgpt-error" hidden></div>
+      </div>
+    </div>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

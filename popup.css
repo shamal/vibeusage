@@ -1,0 +1,186 @@
+:root {
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --text: #cdd6f4;
+  --subtext0: #a6adc8;
+  --subtext1: #bac2de;
+  --green: #a6e3a1;
+  --yellow: #f9e2af;
+  --red: #f38ba8;
+  --claude: #de7356;
+  --chatgpt: #74aa9c;
+  --overlay0: #6c7086;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  background: var(--base);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+  font-size: 13px;
+  padding: 12px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+#refresh {
+  background: none;
+  border: 1px solid var(--surface1);
+  border-radius: 6px;
+  color: var(--subtext0);
+  cursor: pointer;
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  transition: all 0.15s;
+}
+
+#refresh:hover {
+  border-color: var(--overlay0);
+  color: var(--text);
+}
+
+#refresh.spinning svg {
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  background: var(--mantle);
+  border: 1px solid var(--surface0);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.provider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.claude-dot {
+  background: var(--claude);
+}
+
+.chatgpt-dot {
+  background: var(--chatgpt);
+}
+
+.provider-name {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.status-badge {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--subtext0);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.window-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--subtext0);
+}
+
+.pct {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.bar-track {
+  height: 6px;
+  background: var(--surface0);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.4s ease, background-color 0.3s ease;
+}
+
+.bar-fill.low {
+  background: var(--green);
+}
+
+.bar-fill.mid {
+  background: var(--yellow);
+}
+
+.bar-fill.high {
+  background: var(--red);
+}
+
+.reset {
+  font-size: 11px;
+  color: var(--overlay0);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+
+.card-error {
+  font-size: 12px;
+  color: var(--red);
+  padding: 8px 0 2px;
+  line-height: 1.4;
+}
+
+.card-error[hidden] {
+  display: none;
+}
+
+.card-body[hidden] {
+  display: none;
+}
